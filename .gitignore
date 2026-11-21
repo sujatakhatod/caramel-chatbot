@@ -1,0 +1,19 @@
+# Secrets: the Google AI Studio key lives only in a local .env (PRD §5, constitution II)
+.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/target/
+
+# Editors and OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local MCP config holds a GitHub token in plaintext; never commit
+.mcp.json
