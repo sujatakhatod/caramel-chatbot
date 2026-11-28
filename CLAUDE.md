@@ -31,7 +31,8 @@ React + TypeScript (Vite)  --SSE/HTTP-->  Spring Boot + Spring AI  -->  Google A
 - **Backend**: Java, Spring Boot. A `ChatClient` with a chat memory advisor holds per-session conversation history, keyed by session ID. `POST /api/chat` takes a session ID and user message and streams the reply over SSE.
 - **Frontend**: React + TypeScript. Single chat window with message list, input, streaming indicator, error state, and a "New chat" action. Session ID is client-generated and sent with each request.
 - **Model access**: Spring AI's Google AI Studio integration. Whether to use the Google GenAI starter or the OpenAI-compatible endpoint is still open (see `prd.md` section 10); confirm before wiring it up.
-- **Memory is in-process and per-session only.** No persistence across sessions and no user accounts (both out of scope for MVP).
+- **Memory is in-process and per-session only.** No persistence across sessions (out of scope for MVP).
+- **User accounts and authentication** are in scope for Phase 2, per `specs/002-prd-user-auth.md`, not the MVP. Once implemented, `POST /api/chat` requires an authenticated user, and each chat session ID is bound to that user. Until then, the MVP behavior above still applies.
 
 ## Constraints that shape the code
 

@@ -29,10 +29,17 @@ Build a customer service chat assistant for **Caramel AI**, an LLM inferencing c
 - Graceful handling of off-topic questions, errors, and LLM outages.
 
 ### Out of scope (MVP)
-- User authentication and accounts.
+- User authentication and accounts (moved to Phase 2 below).
 - Live human handoff / ticketing integration.
 - Persistent chat history across sessions.
 - RAG over company docs (candidate for a later phase).
+
+### In scope (Phase 2: user authentication and accounts)
+- Customer sign-up or invitation, sign-in and sign-out with email and password, and password reset by email.
+- Server-side session management, with expiry and lockout after repeated failed sign-ins.
+- Protecting `POST /api/chat` so only authenticated users can call it, and binding each chat session to the user who created it.
+- Per-user rate limiting in addition to per-IP limits on sign-in and sign-up.
+- Detailed requirements and open decisions: [specs/002-prd-user-auth.md](specs/002-prd-user-auth.md).
 
 ## 5. Functional Requirements
 
